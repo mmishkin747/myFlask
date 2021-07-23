@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/port_style.css')}}" />
+
+	{% block title -%}
+	{% if title %}
+		<title>{{title}}</title>
+	{% else %}
+		<title>Про Flask</title>
+	{% endif %}
+	{% endblock %}
+
+</head>
+<body>
+
+	{%- block content -%}
+		{%- block mainmenu -%}
+	<ul class="mainmenu">
+		<header class="nav center">
+				<a href="/" class="logo">LOGO</a>
+				<input type="checkbox" name="" class="checkBtn"/>
+				<ol class="center">
+		{% for p in menu %}
+						<a href="{{p.url}}">{{p.title}}</a>
+		{% endfor %}
+				</ol>
+		</header>
+
+
+	</ul>
+		{% endblock mainmenu -%}
+	<div class="clear"></div>
+	<div class="content">
+	{% if title -%}
+		<h1>{{title}}</h1>
+	{% else %}
+		<h1>Про Flask</h1>
+	{% endif -%}
+	</div>
+	{% endblock -%}
+</body>
+</html>
